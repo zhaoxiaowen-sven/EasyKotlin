@@ -47,22 +47,6 @@ private fun testCreateCoroutine() {
     coroutine.resume(Unit)
 }
 
-// 代码段15
-private fun main34() {
-    testLaunch()
-    Thread.sleep(2000L)
-}
-
-private fun testLaunch() {
-    val scope = CoroutineScope(Job())
-    scope.launch {
-        println("Hello!")
-        delay(timeMillis = 1000L)
-        println("World!")
-    }
-}
-
-
 private suspend fun func2(): String {
     println("Hello!")
     delay(1000L)
@@ -83,4 +67,18 @@ private fun testStartCoroutineForSuspend() {
     }
 
     block.startCoroutine(continuation)
+}
+
+fun main283() {
+    testLaunch()
+    Thread.sleep(2000L)
+}
+
+private fun testLaunch() {
+    val scope = CoroutineScope(Job())
+    scope.launch {
+        println("Hello!")
+        delay(1000L)
+        println("World!")
+    }
 }
